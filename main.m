@@ -44,10 +44,16 @@ damp(A); %Calculate eigenvalues, zeta, and wn from ABCD
 [Yo,t,Xo] = lsim(SysModel,U,t,x0); %Open-loop response
 
 figure;
-subplot(211), plot(t,Xo(:,1)); grid;
+subplot(311), plot(t,Xo(:,1)); grid;
 axis ([0 4 -0.2 0.5]);
 set(gca, 'FontSize',18);
 ylabel('{\itx}_1 (\itrad)')
-subplot(212), plot(t,Xo(:,2)); grid; axis([0 4 -2 1]);
+subplot(312), plot(t,Xo(:,2)); grid; axis([0 4 -2 1]);
 set(gca, 'FontSize',18);
 xlabel('\ittime (sec)'); ylabel('{\itx}_2 (\itrad/s)');
+subplot(313), plot(t,Yo); grid;
+axis([0 4 -0.2 0.7]);
+set(gca, 'FontSize',18);
+ylabel('{\ity} (\itrad)'); xlabel('\ittime (sec)');
+
+
